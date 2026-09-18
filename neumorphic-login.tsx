@@ -18,7 +18,7 @@ export default function LoginCard() {
   }
 
   return (
-    <main className="serve-shell flex min-h-screen items-center justify-center px-5 py-12">
+    <main className="serve-shell flex min-h-screen w-full items-center justify-center px-5 py-12">
       <section className="w-full max-w-md">
         <div className="mb-10 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.28em] text-neutral-500">
           <span className="text-lg tracking-[0.16em] text-black">SERVE</span>
