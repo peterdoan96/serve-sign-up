@@ -1,45 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Cormorant_Garamond } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _geist = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
+const _geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
+const _display = Cormorant_Garamond({ subsets: ['latin'], variable: '--font-display', weight: ['500', '600'] })
 
-export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
-}
+export const metadata: Metadata = { title: 'SERVE — Property operations, simplified', description: 'A calmer way to run your hospitality property.', generator: 'v0.app' }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="en">
-      <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
-    </html>
-  )
-}
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en"><body className={`${_geist.variable} ${_geistMono.variable} ${_display.variable} antialiased`}>{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html> }
