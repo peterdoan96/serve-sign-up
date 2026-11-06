@@ -15,7 +15,7 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: "Starter",
+    name: "Standard",
     price: "$59",
     perMonth: true,
     detail: "For boutique properties",
@@ -23,14 +23,14 @@ const plans: Plan[] = [
     popular: true,
   },
   {
-    name: "Pro",
+    name: "Premium",
     price: "$99",
     perMonth: true,
     detail: "For growing properties",
     features: ["51–100 rooms", "Up to 100 staff", "Real-time staff alerts", "Scheduled requests"],
   },
   {
-    name: "Premium",
+    name: "Supreme",
     price: "$139",
     perMonth: true,
     detail: "For larger hotels",
@@ -49,17 +49,17 @@ const plans: Plan[] = [
 function planForRooms(roomCount?: string): string {
   switch (roomCount) {
     case "51-100":
-      return "Pro"
+      return "Premium"
     case "101-250":
     case "250+":
-      return "Premium"
+      return "Supreme"
     default:
-      return "Starter"
+      return "Standard"
   }
 }
 
 export default function PlanPage() {
-  const [selected, setSelected] = useState("Starter")
+  const [selected, setSelected] = useState("Standard")
   const router = useRouter()
 
   useEffect(() => {
